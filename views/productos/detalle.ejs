@@ -1,0 +1,11 @@
+<article class="detalle">
+ <p class="etiqueta"><%= producto.categoria %></p>
+ <h1><%= producto.nombre %></h1>
+ <p class="precio">$<%= producto.precio.toLocaleString("es-AR") %></p>
+ <p><%= producto.descripcion %></p>
+ <p>Disponibilidad: <%= producto.disponible ? "Disponible" : "No disponible" %></p>
+ <p><a class="boton" href="/productos/<%= producto.id %>/editar">Editar producto</a></p>
+ <a href="/productos">Volver al catálogo</a>
+ <p><a href="/productos/<%= producto.id %>/disponibilidad">Cambiar disponibilidad</a></p>
+ <p><a href="/productos/<%= producto.id %>/eliminar">Eliminar producto</a></p>
+</article>

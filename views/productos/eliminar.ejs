@@ -1,0 +1,16 @@
+<section class="estado">
+ <h1>Confirmar eliminación</h1>
+ <p>Vas a eliminar este registro de forma permanente:</p>
+ <h2><%= producto.nombre %></h2>
+ <p>Categoría: <%= producto.categoria %> · Precio: $<%= producto.precio %></p>
+ <p>ID: <%= producto.id %></p>
+ <p>Esta acción no se puede deshacer desde la aplicación.</p>
+ <% if (error) { %>
+ <p role="alert"><%= error %></p>
+ <% } %>
+ <form action="/productos/<%= producto.id %>/eliminar" method="post">
+ <input type="hidden" name="confirmar" value="si">
+ <button type="submit">Confirmar eliminación</button>
+ <a href="/productos/<%= producto.id %>">Cancelar y conservar</a>
+ </form>
+</section>

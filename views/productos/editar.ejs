@@ -1,0 +1,31 @@
+<section class="panel-formulario">
+    <p class="etiqueta">EDICIÓN</p>
+    <h1>
+        <%= titulo %>
+    </h1>
+    <% if (error) { %>
+        <p class="error" role="alert">
+            <%= error %>
+        </p>
+        <% } %>
+            <form action="/productos/<%= id %>/editar" method="post" class="formulario">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" value="<%= valores.nombre %>" required>
+                <label for="categoria">Categoría</label>
+                <input id="categoria" name="categoria" value="<%= valores.categoria %>" required>
+                <label for="precio">Precio</label>
+                <input id="precio" name="precio" type="number" min="1" step="any" value="<%= valores.precio %>"
+                    required>
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="5" required><%= valores.descripcion %></textarea>
+                <label for="disponible">Disponibilidad</label>
+                <select id="disponible" name="disponible" required>
+                    <option value="" <%=!["true", "false" ].includes(valores.disponible) ? "selected" : "" %>>Elegí
+                        una opción</option>
+                    <option value="true" <%=valores.disponible==="true" ? "selected" : "" %>>Disponible</option>
+                    <option value="false" <%=valores.disponible==="false" ? "selected" : "" %>>No disponible</ option>
+                </select>
+                <button type="submit">Guardar cambios</button>
+                <a href="/productos/<%= id %>">Cancelar y volver al detalle</a>
+            </form>
+</section>
